@@ -1,0 +1,9 @@
+;Customizable loading stripes scheme.
+
+	;Black + Blue stripes effect ...
+
+	lda $d020
+	eor #$06
+	sta $d020
+
+	

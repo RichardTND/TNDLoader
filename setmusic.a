@@ -1,0 +1,23 @@
+;Install music player
+
+		!to "music.prg",cbm
+		
+		;ENSURE YOUR MUSIC IS RELOCATED TO $E000, USING 
+		;A SPECIFIC SONG RELOCATOR TOOL. YOU CANNOT JUST
+		;PLACE A MUSIC AT $E000, IF IT IS PLAYS AT 
+		;A DIFFERENT LOAD ADDRESS I.E. $1000.
+		
+		;SPECIFIC SONG RELOCATORS WHICH MAY BE USED:
+		;
+		;GoatTracker (Built in) - Zeropoages $fd-ff are best selected 
+		;CheeseCutter (CT2UTIL command tool)
+		;Demo Music Creator (DMC Relocator / All Round Relocator)
+		;I-Relocator 
+		;Sid-Maker (Sidwizard)
+		;Music Mixer/Voicetracker 
+		;I-Relocator (Checks music player and if valid, allows to manually relocate)
+		;SidReloc (Command line tool for relocation of PSID files)
+		
+		*=$e000
+		!bin "files\qcloadertune.prg",,2
+		

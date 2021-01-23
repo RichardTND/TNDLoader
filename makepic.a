@@ -1,0 +1,10 @@
+;Install loading picture
+
+;The loading picture should be saved in KOALAPAINT
+;format. The loading picture is installed at $2000
+;and after it has loaded from tape, it moves to a 
+;higher address. 
+
+				!to "loaderpic.prg",cbm
+				*=$2000
+				!bin "files\quadpic.prg",,2

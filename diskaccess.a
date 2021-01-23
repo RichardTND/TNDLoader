@@ -1,0 +1,33 @@
+;IRQ Tape Master system ... Disk Access source
+
+.LoadFileFromDisk
+				sei
+				lda #$36
+				sta $01
+				lda #8
+				ldx #8
+				ldy #0
+				jsr $ffba
+				lda #$01 ;1 file max
+filenamelo	    ldx #<$ffff				
+filenamehi      ldy #>$ffff				
+				jsr $ffbd				
+startaddrlo     ldx #$00								
+startaddrhi     ldy #$00								
+				lda #0								
+				jsr $ffd5								
+				stx end								
+				sty end+1								
+												
+.MakeFileSizeCalculation												
+
+				sec												
+				lda end												
+				sec												
+				sbc start												
+				sta FileSize												
+				lda end+1												
+				sec												
+				sbc start+1												
+				sta FileSize+1												
+				rts												
